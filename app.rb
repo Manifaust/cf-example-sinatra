@@ -31,7 +31,10 @@ get '/' do
   if ENV['EIP_ENDPOINT'].empty?
     erb :index
   else
+    logger.info '**************************************************'
     logger.info "Redirecting to #{@response_body}"
+    logger.info '**************************************************'
+
     redirect @response_body
   end
 
