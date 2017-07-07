@@ -8,30 +8,17 @@
 	</head>
 
 	<body>
-		<header id="header">
-			<div class="innertube">
-				<h1>Ruby/Sinatra Example - Cloud Foundry</h1>
-			</div>
-		</header>
-
 		<div id="wrapper">
 			<main>
 				<div id="content">
 					<div class="innertube">
 						<h2>IP: <%= @host %> - Port: <%= @port %> - DEA Index: <%= @index %></h2>
-						<img src="https://lh5.googleusercontent.com/-aDaxlU0CssE/AAAAAAAAAAI/AAAAAAAABo4/HbWBRIZ_lK8/photo.jpg"></img>
-						<img src="http://www.altoros.com/cflive/wp-content/uploads/2015/04/cloud-foundry-logo.png"></img>
-
+            <h2>User agent: <%= @agent %></h2>
+            <h2>body: <%= @response_body %></h2>
 					</div>
 				</div>
 			</main>
 		</div>
-
-		<footer id="footer">
-			<div class="innertube">
-				<p>Altoros Training</p>
-			</div>
-		</footer>
 
 	</body>
 </html>
