@@ -3,3 +3,4 @@ applications:
 - name: faas-tweet
   env:
     EIP_ENDPOINT: ''
+    #EIP_ENDPOINT: 'http://faas-hackday-deployer.cfapps.io/faas/tweeturlrouter'

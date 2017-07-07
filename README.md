@@ -1,38 +1,5 @@
-Cloud Foundry Ruby Example application
-===============
+This is the client app for the FaaS Enterprise Integration Pattern hackathon project.
 
-This is a simple Sinatra 'Hello World' web application.
+Before deploying, updating `manifest.yml` by setting `EIP_ENDPOINT`.
 
-
-## Instructions
-
-### Download this app
-```
-$ git clone https://github.com/Altoros/cf-example-sinatra.git
-$ cd cf-example-sinatra
-```
-
-### Deploy to Cloud Foundry
-This step requires you to have Cloud Foundry CLI installed. You can download it from: https://github.com/cloudfoundry/cli/blob/master/README.md#installers
-
-Log into your Cloud Foundry
-```
-$ cf login -a <paas api url. Warning: default is https, specify http:// if necesary> -u <user/email> -p <pass>
-```
-
-Push
-```
-$ cf push cf-example-sinatra
-```
-Note: it is possible that this application name is already in use. Change it if you get that error.
-
-If you want to change the memory to allocate to this app:
-```
-$ cf push -m 64m cf-example-sinatra
-```
-
-And that is it. Your (probably) first app deployed into a PaaS :)
-
-### Credits
-
-Thanks **@mgarciap** for the original example!
+The app will POST to the endpoint, sending as request data the user agent of the app visitor. Then, it will expect the endpoint to return a URL as the response body. The app then redirects to that URL.
