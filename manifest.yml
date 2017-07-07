@@ -2,4 +2,4 @@
 applications:
 - name: faas-tweet
   env:
-    EIP_ENDPOINT: http://httpbin.org/post
+    EIP_ENDPOINT: ''

@@ -7,6 +7,7 @@ require 'uri'
 configure do
   set :views,         File.dirname(__FILE__) + '/views'
   set :public_folder, File.dirname(__FILE__) + '/public'
+  enable :logging
 end
 
 get '/' do
@@ -16,8 +17,9 @@ get '/' do
   @agent = request.user_agent
 
 
-  uri = URI.parse(ENV['EIP_ENDPOINT'])
+  endpoint = ENV['EIP_ENDPOINT'].empty? ? 'http://httpbin.org/post' : ENV['EIP_ENDPOINT']
 
+  uri = URI.parse(endpoint)
 
   http = Net::HTTP.new(uri.host, uri.port)
   header = { 'Content-Type' => 'text/plain' }
@@ -26,7 +28,11 @@ get '/' do
 
   @response_body = http.request(net_request).body
 
-  # redirect "#{@response_body}"
+  if ENV['EIP_ENDPOINT'].empty?
+    erb :index
+  else
+    logger.info "Redirecting to #{@response_body}"
+    redirect @response_body
+  end
 
-  erb :index
 end
